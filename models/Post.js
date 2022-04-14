@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Post extends Model {}
-
+//todo: make sure models are correct
 Post.init(
     {
         id: {
@@ -18,6 +18,11 @@ Post.init(
         post_content: {
             type: DataTypes.TEXT,
             allowNull: false,
+        },
+        date_posted: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         user_id: {
             type: DataTypes.INTEGER,

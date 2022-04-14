@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Reply extends Model {}
-
+//todo: make sure models are correct
 Reply.init(
     {
         id: {
@@ -10,10 +10,6 @@ Reply.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-        },
-        reply_title: {
-            type: DataTypes.STRING,
-            allowNull: true,
         },
         reply_content: {
             type: DataTypes.TEXT,
@@ -29,7 +25,7 @@ Reply.init(
         post_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
+                model: 'post',
                 key: 'id'
             }
         }

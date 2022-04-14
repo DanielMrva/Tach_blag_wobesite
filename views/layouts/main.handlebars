@@ -1,40 +1,79 @@
-<!DOCTYPE html>
+{{!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>Fund My post!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Tach Blag Wobesite</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+
+    <header>
+        <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">Tach Blag Wobesite</a>
+              <ul class="right hide-on-med-and-down">
+                  {{#if logged_in}}
+                  <li><a id="logo-container" href="/profile" class="waves-effect waves-teal btn-flat">Profile</a></li>
+                  <li><a id="logout" class="waves-effect waves-teal btn-flat">Log Out</a></li>
+                  {{else}}
+                  <li><a id="login"class="waves-effect waves-teal btn-flat">Log In</a></li>
+                  {{/if}}
+              </ul>
+
+              <ul id="nav-mobile" class="sidenav">
+                  {{#if logged_in}}
+                  <li><a id="logo-container" href="/profile" class="brand-logo">Profile</a></li>
+                  <li><a id="logout" class="waves-effect waves-teal btn-flat">Log Out</a></li>
+                  {{else}}
+                  <li><a id="login"class="waves-effect waves-teal btn-flat">Log In</a></li>
+                  {{/if}}
+              </ul>
+              <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
     </header>
+
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
-      {{{ body }}}
+      <div class="container">
+
+        <section class="section">
+
+          {{{ body }}}
+
+        </section>
+
+      </div>
+      
     </main>
     <footer>
       
     </footer>
   </div>
-
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
