@@ -1,5 +1,5 @@
 <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
+    <div class="card blue-grey lighten-1">
         <div class="card-content white-text">
             <h3 class="card-title">Reply To:{{reply.post.post_title}}</h3>
             <p>{{reply.reply_content}}</p>
@@ -8,9 +8,9 @@
         <div class="card-action">
             {{!-- todo: add if logic to this section for buttons only users should be able to update and delete, any should be able to reply. Use session:user_ID for identification
             also add if statement for if logged in to wrap the other if statement. --}}
-            <a class="waves-effect waves-teal btn-flat" id="deleteBTN" data-reply="{{reply.id}}" data-user="{{reply.user_id}}">Delete</a>
-            <a class="waves-effect waves-teal btn-flat" id="updateBTN" data-reply="{{reply.id}}" data-user="{{reply.user_id}}">Update</a>
-            <a class="waves-effect waves-teal btn-flat" id="replyBTN" data-reply="{{reply.id}}">Reply</a>
+            <a class="waves-effect waves-teal btn-flat" id="deleteReplyBTN" data-reply="{{reply.id}}" data-user="{{reply.user_id}}">Delete</a>
+            <a class="waves-effect waves-teal btn-flat" id="updateReplyBTN" data-reply="{{reply.id}}" data-user="{{reply.user_id}}">Update</a>
+            <a class="waves-effect waves-teal btn-flat" id="replyReplyBTN" data-reply="{{reply.id}}">Reply</a>
         </div>
     </div>
 </div>
