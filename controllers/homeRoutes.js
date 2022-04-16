@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/post/id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -51,7 +51,7 @@ router.get('/post/id', async (req, res) => {
             });
 
             const replies = replyData.map((reply) => reply.get({plain: true}));
-            res.render('onePost', {...post, ...replies})
+            res.render('onepost', {...post, ...replies})
         } catch (err) {
             res.status(500).json(err);
         }

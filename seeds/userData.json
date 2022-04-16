@@ -8,5 +8,10 @@
         "name":"Dude Bob",
         "email":"dube@bobmail.com",
         "password":"dudebob123"
+    },
+    {
+        "name":"test",
+        "email":"test@test.com",
+        "password":"12345678"
     }
 ]

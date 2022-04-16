@@ -1,6 +1,6 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
-//TODO: link these to the appropriate form areas.  Make sure ID's match up to the probably bootstrap form areas
+
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
@@ -22,7 +22,6 @@ const loginFormHandler = async (event) => {
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
-//TODO: link these to the appropriate form areas.  Make sure ID's match up to the probably bootstrap form areas
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();

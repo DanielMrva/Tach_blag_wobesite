@@ -2,7 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Reply extends Model {}
-//todo: make sure models are correct
 Reply.init(
     {
         id: {
