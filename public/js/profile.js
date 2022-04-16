@@ -5,11 +5,12 @@ const newFormHandler = async (event) => {
 
     const post_Title = document.querySelector('#post_title').ariaValueMax.trim();
     const post_Content = document.querySelector('#post_content').value.trim();
+    const user_id = req.session.userID;
 
-    if (post_Title && post_Content) {
+    if (post_Title && post_Content && user_id) {
         const response = await fetch('/api/posts', {
             method: 'POST',
-            body: JSON.stringify({post_Title, post_Content}),
+            body: JSON.stringify({post_Title, post_Content, user_id}),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -27,17 +28,23 @@ const newFormHandler = async (event) => {
 const delButtonHandler = async (event) => {
 //TODO: make sure new posts have data-id's associated with the DB?  Will have to look at the rest of the files/routes to figure out how this is done.
 
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+    if (event.target.hasAttribute('data-post') && event.target.hasAttribute('data-user') ) {
+        const post = event.target.getAttribute('data-post');
+        const user = event.target.getAttribute('data-user');
 
-        const response = await featch(`/api/posts/${id}`, {
-            method: 'DELETE',
-        });
-
-        if (response.ok) {
-            document.location.replace('/profile');
+        if (user === req.session.user_ID) {
+            const response = await featch(`/api/posts/${post}`, {
+                method: 'DELETE',
+            });
+    
+            if (response.ok) {
+                document.location.replace('/profile');
+            } else {
+                alert('Failed to delete post');
+            }
         } else {
-            alert('Failed to delete post');
+            alert("You may not delete another user's posts");
+            document.location.replace('/profile');
         }
     }
 };

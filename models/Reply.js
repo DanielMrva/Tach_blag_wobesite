@@ -28,6 +28,11 @@ Reply.init(
                 model: 'post',
                 key: 'id'
             }
+        },
+        date_replied: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         }
     },
     {

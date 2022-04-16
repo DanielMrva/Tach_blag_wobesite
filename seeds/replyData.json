@@ -1,0 +1,23 @@
+[
+    {
+        "reply_content":"Blah Blah Blah",
+        "user_id":1,
+        "post_id":3
+    },
+    {
+        "reply_content":"Words!",
+        "user_id":1,
+        "post_id":1
+    },
+    {
+        "reply_content":"Things and stuff!",
+        "user_id":2,
+        "post_id":2
+
+    },
+    {
+        "reply_content":"Stuff and things!",
+        "user_id":2,
+        "post_id":2
+    }
+]

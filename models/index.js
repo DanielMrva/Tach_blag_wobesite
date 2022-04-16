@@ -11,4 +11,4 @@ Reply.belongsTo(Post);
 User.hasMany(Reply);
 Reply.belongsTo(User);
 
-module.exports = {User, Post};
+module.exports = {User, Post, Reply};
