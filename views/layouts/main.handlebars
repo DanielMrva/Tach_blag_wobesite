@@ -7,8 +7,8 @@
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <header>
         <nav class="light-blue lighten-1" role="navigation">
           <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Tach Blag Wobesite</a>
+            <a id="logo-container" href="/" class="brand-logo">Tach Blag Wobesite</a>
               <ul class="right hide-on-med-and-down">
                   {{#if logged_in}}
                   <li><a id="logo-container" href="/profile" class="waves-effect waves-teal btn-flat">Profile</a></li>
@@ -58,8 +58,8 @@
   </div>
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/js/init.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
