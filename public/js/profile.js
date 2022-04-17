@@ -1,16 +1,14 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    //TODO: link these to the appropriate form areas.  Make sure ID's match up to the probably bootstrap form areas
 
-    const post_Title = document.querySelector('#post_title').ariaValueMax.trim();
-    const post_Content = document.querySelector('#post_content').value.trim();
-    const user_id = req.session.userID;
+    const post_title = document.querySelector('#post-title').value.trim();
+    const post_content = document.querySelector('#post-content').value.trim();
 
-    if (post_Title && post_Content && user_id) {
+    if (post_title && post_content) {
         const response = await fetch('/api/posts', {
             method: 'POST',
-            body: JSON.stringify({post_Title, post_Content, user_id}),
+            body: JSON.stringify({post_title, post_content}),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -32,7 +30,7 @@ const delButtonHandler = async (event) => {
         const post = event.target.getAttribute('data-post');
         const user = event.target.getAttribute('data-user');
 
-        if (user === req.session.user_ID) {
+        if (user === req.session.user_id) {
             const response = await featch(`/api/posts/${post}`, {
                 method: 'DELETE',
             });

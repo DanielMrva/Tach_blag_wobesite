@@ -18,7 +18,6 @@ router.get('/', async (req, res) => {
         res.render('homepage', {
             posts,
             logged_in: req.session.logged_in,
-            user_id: req.session.user_ID,
         });
     } catch (err) {
         res.status(500).json(err);
@@ -61,7 +60,7 @@ router.get('/post/:id', async (req, res) => {
         // res.status(200).json({post, replies});
         
     } catch (err) {
-        res.status(404).json({message:'No post found by that ID'});
+        res.status(404).json(err);
     }
 });
 
@@ -72,17 +71,17 @@ router.get('/profile', withAuth, async (req, res) => {
             attributes: {exclude: ['password']},
             include: [{model: Post}],
         });
-        const postData = await Post.findAll({
-            where: {
-                user_id: req.session.user_ID
-            }
+        // const postData = await Post.findAll({
+        //     where: {
+        //         user_id: req.session.user_ID
+        //     }
 
-        });
-        const posts = postData.map((post) => post.get({plain: true}));
+        // });
+        // const posts = postData.map((post) => post.get({plain: true}));
         const user = userData.get({plain: true});
-
+        // res.status(200).json({user})
         res.render('profile', {
-            ...user, ...posts,
+            ...user,
             logged_in: true
         });
     } catch (err) {
