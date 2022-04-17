@@ -10,5 +10,4 @@ const logout = async () => {
     }
 };
 
-//TODO: link these to the appropriate form areas.  Make sure ID's match up to the probably bootstrap form areas
 document.querySelector('#logout').addEventListener('click', logout);

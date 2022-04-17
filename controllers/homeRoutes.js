@@ -56,8 +56,46 @@ router.get('/post/:id', async (req, res) => {
         const replies = replyData.map((reply) => reply.get({plain: true}));
 
        
-        res.render('onepost', {...post, replies});
-        // res.status(200).json({post, replies});
+        res.render('onepost', {...post, replies, logged_in: req.session.logged_in});
+        
+    } catch (err) {
+        res.status(404).json(err);
+    }
+});
+
+router.get('/replyto/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+
+            ],
+        });
+        
+
+        const replyData = await Reply.findAll({
+            where: {
+                post_id: req.params.id
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+                {
+                    model: Post,
+                    attributes: ['post_title']
+                }
+            ],
+        });
+        const post = postData.get({plain: true});
+        const replies = replyData.map((reply) => reply.get({plain: true}));
+
+       
+        res.render('reply', {...post, replies, logged_in: req.session.logged_in});
         
     } catch (err) {
         res.status(404).json(err);
@@ -71,15 +109,8 @@ router.get('/profile', withAuth, async (req, res) => {
             attributes: {exclude: ['password']},
             include: [{model: Post}],
         });
-        // const postData = await Post.findAll({
-        //     where: {
-        //         user_id: req.session.user_ID
-        //     }
-
-        // });
-        // const posts = postData.map((post) => post.get({plain: true}));
         const user = userData.get({plain: true});
-        // res.status(200).json({user})
+
         res.render('profile', {
             ...user,
             logged_in: true
