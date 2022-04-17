@@ -6,9 +6,7 @@
             <p>Posted by: {{this.user.name}} on {{format_date this.date_replied}}</p>
         </div>
         <div class="card-action">
-            {{!-- todo: add if logic to this section for buttons only users should be able to update and delete, any should be able to reply. Use session:user_ID for identification
-            also add if statement for if logged in to wrap the other if statement. --}}
-            <a class="waves-effect waves-teal btn-flat" id="deleteReplyBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
+            <a class="waves-effect waves-teal btn-flat deleteBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
             <a class="waves-effect waves-teal btn-flat" id="updateReplyBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Update</a>
         </div>
     </div>

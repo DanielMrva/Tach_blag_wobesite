@@ -37,7 +37,7 @@
             <span class="card-title"><a href="/post/{{this.id}}">{{this.post_title}}</a></span>
         </div>  
         <div class="card-action">
-          <button class="btn btn-sm btn-danger" data-id="{{this.id}}">DELETE</button>
+          <button class="btn btn-sm btn-danger deleteBTN" data-id="{{this.id}}" data-user="{{this.user_id}}">DELETE</button>
         </div>
       </div>
     </div>
@@ -47,3 +47,4 @@
 </div>
 
 <script src="./js/profile.js"></script>
+<script src="/js/deleteHandler.js"></script>
