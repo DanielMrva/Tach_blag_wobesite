@@ -6,6 +6,6 @@ module.exports = {
     check_equality: (id, user, options) => {
       return (id == user) ? options.fn(this) : options.inverse(this);
     }
-    },
+    
 };
   
