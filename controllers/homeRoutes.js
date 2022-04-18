@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                 },
             ],
         });
@@ -17,7 +17,8 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             posts,
-            logged_in: req.session.logged_in,
+            logged_in: req.session.logged_in, 
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);
@@ -30,7 +31,7 @@ router.get('/post/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                 },
 
             ],
@@ -44,7 +45,7 @@ router.get('/post/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['id','name'],
                 },
                 {
                     model: Post,
@@ -54,10 +55,10 @@ router.get('/post/:id', async (req, res) => {
         });
         const post = postData.get({plain: true});
         const replies = replyData.map((reply) => reply.get({plain: true}));
-
-       
-        res.render('onepost', {...post, replies, logged_in: req.session.logged_in});
         
+       
+        res.render('onepost', {...post, replies, logged_in: req.session.logged_in, user_id: req.session.user_id});
+    
     } catch (err) {
         res.status(404).json(err);
     }
@@ -69,7 +70,7 @@ router.get('/replyto/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                 },
 
             ],
@@ -83,7 +84,7 @@ router.get('/replyto/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                 },
                 {
                     model: Post,
@@ -107,13 +108,17 @@ router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: {exclude: ['password']},
-            include: [{model: Post}],
+            include: [
+                {model: Post},
+                {model: Reply}
+            ],
         });
         const user = userData.get({plain: true});
 
         res.render('profile', {
             ...user,
-            logged_in: true
+            logged_in: true,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);

@@ -7,8 +7,8 @@
                 <p>Posted by {{this.user.name}} on {{format_date this.date_posted}}</p>
             </div>
             <div class="card-action">
-                <a class="waves-effect waves-teal btn-flat deleteBTN" data-post="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
-                <a class="waves-effect waves-teal btn-flat" id="updatePostBTN" data-post="{{this.id}}" data-user="{{this.user_id}}">Update</a>
+                {{!-- <a class="waves-effect waves-teal btn-flat deleteBTN" data-post="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
+                <a class="waves-effect waves-teal btn-flat" id="updatePostBTN" data-post="{{this.id}}" data-user="{{this.user_id}}">Update</a> --}}
                 <a class="waves-effect waves-teal btn-flat" id="replyPostBTN" data-post="{{this.id}}" href="/replyto/{{this.id}}">Reply</a>
             </div>
         </div>

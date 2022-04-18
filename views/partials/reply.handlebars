@@ -6,8 +6,13 @@
             <p>Posted by: {{this.user.name}} on {{format_date this.date_replied}}</p>
         </div>
         <div class="card-action">
-            <a class="waves-effect waves-teal btn-flat deleteBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
-            <a class="waves-effect waves-teal btn-flat" id="updateReplyBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Update</a>
+            {{!-- {{#if logged_in}}
+                {{#check_equality user_id, user_id}}
+                <a class="waves-effect waves-teal btn-flat deleteBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
+                <a class="waves-effect waves-teal btn-flat" id="updateReplyBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Update</a>
+                {{/check_equality}}
+            {{/if}} --}}
+
         </div>
     </div>
 </div>

@@ -38,6 +38,8 @@
         </div>  
         <div class="card-action">
           <button class="btn btn-sm btn-danger deleteBTN" data-post="{{this.id}}" data-user="{{this.user_id}}">DELETE</button>
+          <a class="waves-effect waves-teal btn-flat updateBTN" data-post="{{this.id}}" data-user="{{this.user_id}}">Update</a>
+
         </div>
       </div>
     </div>
@@ -46,5 +48,32 @@
   {{/if}}
 </div>
 
+<div class="row">
+  {{#if this.replies.length}}
+  <h3 class="replies-box">Current Replies:</h3>
+  {{#each replies}}
+
+      <div class="col s12 m12">
+        <div class="card blue-grey lighten-1">
+          <div class="card-content white-text">
+            <h3 class="card-title">Reply To: {{this.post.post_title}}</h3>
+            <p>{{this.reply_content}}</p>
+            <p>Posted by: {{this.user.name}} on {{format_date this.date_replied}}</p>
+          </div>
+          <div class="card-action">
+            {{#if logged_in}}
+                {{!-- {{#check_equality user_id, user_id}} --}}
+                <a class="waves-effect waves-teal btn-flat deleteBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Delete</a>
+                <a class="waves-effect waves-teal btn-flat" id="updateReplyBTN" data-reply="{{this.id}}" data-user="{{this.user_id}}">Update</a>
+                {{!-- {{/check_equality}} --}}
+            {{/if}}
+
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}  
+</div>
+
 <script src="./js/profile.js"></script>
-<script src="/js/deleteHandler.js"></script>
+<script src="/js/delUpHandler.js"></script>
