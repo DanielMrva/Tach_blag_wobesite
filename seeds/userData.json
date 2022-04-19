@@ -1,17 +1,17 @@
 [
     {
-        "name":"Billy Bob",
-        "email":"bill@bobmail.com",
-        "password":"bobittybob"
+        "name":"Turtle",
+        "email":"turtle@frankenstein.com",
+        "password":"tooslow1"
     },
     {
-        "name":"Dude Bob",
-        "email":"dude@bobmail.com",
-        "password":"dudebob123"
+        "name":"AutoResponder2574",
+        "email":"not@abot.com",
+        "password":"nonbot12"
     },
     {
-        "name":"test",
-        "email":"test@test.com",
+        "name":"BlackHat",
+        "email":"IhateThatGuy@lol.com",
         "password":"12345678"
     }
 ]

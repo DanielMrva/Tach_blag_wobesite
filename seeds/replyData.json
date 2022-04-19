@@ -1,23 +1,23 @@
 [
     {
-        "reply_content":"Blah Blah Blah",
-        "user_id":1,
-        "post_id":3
-    },
-    {
-        "reply_content":"Words!",
-        "user_id":1,
+        "reply_content":"https://xkcd.com/1653/",
+        "user_id":2,
         "post_id":1
     },
     {
-        "reply_content":"Things and stuff!",
+        "reply_content":"https://xkcd.com/1689/",
         "user_id":2,
-        "post_id":2
+        "post_id":1
+    },
+    {
+        "reply_content":"https://xkcd.com/1683/",
+        "user_id":2,
+        "post_id":1
 
     },
     {
-        "reply_content":"Stuff and things!",
+        "reply_content":"https://xkcd.com/712/",
         "user_id":2,
-        "post_id":2
+        "post_id":1
     }
 ]

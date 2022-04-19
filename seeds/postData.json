@@ -1,22 +1,22 @@
 [
     {
-        "post_title":"A title",
-        "post_content":"This is some content, you can read it!",
+        "post_title":"Big Annoucement",
+        "post_content":"Check out our big announcement at thirteen-sixtyone!",
         "user_id":1
     },
     {
-        "post_title":"Another title",
-        "post_content":"Something Else to read!",
+        "post_title":"Need help with a debug",
+        "post_content":"Please don't eat the bug, just check out seven hundred and twenty two.!",
         "user_id":1
     },
     {
-        "post_title":"Woah another title",
-        "post_content":"Something Else to read I guess!",
+        "post_title":"Or you could just write good code",
+        "post_content":"Said no one in ninteen twenty six!",
         "user_id":2
     },
     {
-        "post_title":"MORE TITLES! NO WAY!",
-        "post_content":"Something to ignore completely!",
+        "post_title":"Dream Job",
+        "post_content":"Check it out! Job interview at Xavier Kalavra Corporation Dot-com.",
         "user_id":2
     }
 ]
