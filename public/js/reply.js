@@ -1,10 +1,8 @@
 const newReplyHandler = async (event) => {
     event.preventDefault();
-    console.log('click!')
 
     const post_id = event.target.getAttribute('data-post');
     const reply_content = document.querySelector('#reply-content').value.trim();
-
     if (post_id && reply_content) {
 
         const response = await fetch('/api/reply', {

@@ -35,4 +35,22 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const replyData = await Reply.update(
+            {reply_content: req.body.update_reply_content}, 
+            {where: {id: req.params.id}}
+        );
+        if (!replyData) {
+            res.status(404).json({message: 'Could not find that reply'});
+            return; 
+        }
+        res.status(200).json(replyData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 module.exports = router;

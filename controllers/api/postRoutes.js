@@ -35,4 +35,31 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+
+    let edits = {};
+
+    if (req.body.post_title) {
+        edits.post_title = req.body.post_title;
+    }
+    if (req.body.post_content) {
+        edits.post_content = req.body.post_content;
+    }
+
+    try {
+        const postData = await Post.update(
+            edits, {where: {id: req.params.id}}
+        );
+        if (!postData) {
+            res.status(404).json({message: 'Could not find that post'});
+            return; 
+        }
+        res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
 module.exports = router;
